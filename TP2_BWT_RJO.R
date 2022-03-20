@@ -6,7 +6,7 @@ library(datasets)
 library(tidyverse)
 library(psych)
 library(tidyr)
-#Reading in the dataset a "c". 
+#Reading in the dataset as "c". 
 c<-read.csv("imports-85.data")
 head(cc,5)
 #Manually renaming all of the columns
@@ -44,14 +44,14 @@ sapply(c,class)
 cc<-subset(c, select = c("normalized_losses","wheel_base","horsepower","length","width","height","curb_weight","engine_size","bore","stroke","compression_ratio","peak_rpm","city_mpg","highway_mpg","price")) 
 #Checking the correlation table for the continuous variables.
 cor(cc,cc)
-#Checking what is missing and then omiting the missing data from the sets.
+#Checking what is missing and then omitting the missing data from the sets. This will ignore the missing data and it will have no affect on the data.
 is.na(cc)
 cc%>%
   na.omit(cc)
 c%>%
   na.omit(c)
 sapply(cc,class)
-#Changing all of the data classes to numeric to make them work in the following grpahs and tables.
+#Changing all of the data classes to numeric to make them work in the following graphs and tables.
 cc[]<-lapply(cc, function(x) as.numeric(as.character(x)))
 sapply(cc,class)
 na.pass(cc)
